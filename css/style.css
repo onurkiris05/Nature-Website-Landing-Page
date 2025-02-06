@@ -7,6 +7,7 @@
   /* COLORS */
   --clr-primary: #123524;
   --clr-secondary: #ffc700;
+  --clr-text: #fff;
 
   /* TRANSITIONS */
   --transition-slow: 1s ease-in-out;
@@ -53,9 +54,11 @@ body {
 
 /* TITLE */
 .header-container .title {
+  position: relative;
   font-size: 2rem;
   font-weight: 800;
   color: var(--clr-primary);
+  z-index: calc(var(--z-above) + var(--z-base));
 }
 
 /* ICONS */
@@ -95,7 +98,7 @@ body {
   width: 100%;
   height: 100vh;
   background: rgba(--bg-primary, 0.9);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-fast);
@@ -126,7 +129,7 @@ body {
 
 .header-container .navbar a {
   text-decoration: none;
-  color: var(--clr-primary);
+  color: var(--clr-text);
   font-size: 1.5rem;
   font-weight: 500;
   transition: var(--transition-fast);
@@ -153,6 +156,7 @@ body {
   font-size: 0.8rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  z-index: calc(var(--z-above) + var(--z-base));
 }
 
 /* SOCIAL */
@@ -166,6 +170,7 @@ body {
   margin-bottom: 2rem;
   font-size: 1.5rem;
   gap: 1rem;
+  z-index: calc(var(--z-above) + var(--z-base));
 }
 
 .footer-container .social ion-icon {
@@ -177,4 +182,41 @@ body {
 .footer-container .social ion-icon:hover {
   color: var(--clr-secondary);
   transform: scale(1.1);
+}
+
+/* BACKGROUND */
+.bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: var(--z-base);
+  user-select: none;
+}
+
+.bg-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: calc(var(--z-below) + var(--z-base));
+}
+
+.bg-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: screen;
+  z-index: var(--z-base);
+}
+
+body.dark-mode .bg-container img {
+  filter: invert(1);
+  mix-blend-mode: multiply;
 }
