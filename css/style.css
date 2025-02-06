@@ -220,3 +220,23 @@ body.dark-mode .bg-container img {
   filter: invert(1);
   mix-blend-mode: multiply;
 }
+
+.bg-container .bg-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: calc(var(--z-above) + var(--z-base));
+  font-size: 10rem;
+  letter-spacing: 1rem;
+  background: linear-gradient(90deg, teal, var(--clr-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .bg-container .bg-title {
+  background: linear-gradient(90deg, var(--clr-secondary), royalblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
