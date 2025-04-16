@@ -24,8 +24,8 @@ function toggleColorMode() {
   document.body.classList.toggle("dark-mode");
   const isDarkMode = document.body.classList.contains("dark-mode");
   bgVideo.src = isDarkMode
-    ? "/assets/videos/winter-forest-hd_2048_1080_24fps.mp4"
-    : "/assets/videos/forest-hd_2048_1080_24fps.mp4";
+    ? "https://res.cloudinary.com/djzahz5ym/video/upload/v1744785109/rifg8lbqgrr77ue1owuv.mp4"
+    : "https://res.cloudinary.com/djzahz5ym/video/upload/v1744785133/ikmhigmp8pkqho6nimdk.mp4";
 }
 
 colorButtons.forEach((button) => {
